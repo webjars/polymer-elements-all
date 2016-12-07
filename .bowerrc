@@ -1,0 +1,14 @@
+{
+  "cwd": "./target",
+  "directory": "bower_components",
+  "color": true,
+  "save": true,
+  "save-exact": true,
+  "timeout": 60000,
+  "storage": {
+    "packages" : "./target/.bower/packages",
+    "registry" : "./target/.bower/registry",
+    "links" : "./target/.bower/links"
+  },
+  "interactive": false
+}
