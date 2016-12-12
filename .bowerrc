@@ -1,5 +1,4 @@
 {
-  "cwd": ".",
   "directory": "target/bower_components",
   "color": true,
   "save": true,
