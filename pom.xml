@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>polymer-elements-all</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>polymer-elements-all</name>
     <description>WebJar for Polymer Elements compendium</description>
     <url>http://webjars.org</url>
@@ -39,10 +39,10 @@
     </licenses>
 
     <scm>
-        <url>http://github.com/CERN/webjars-polymer-elements-all</url>
-        <connection>scm:git:https://github.com/CERN/webjars-polymer-elements-all.git</connection>
-        <developerConnection>scm:git:https://github.com/CERN/webjars-polymer-elements-all.git</developerConnection>
-        <tag>polymer-elements-all-0.0.2</tag>
+        <url>http://github.com/webjars/polymer-elements-all</url>
+        <connection>scm:git:https://github.com/CERN/polymer-elements-all.git</connection>
+        <developerConnection>scm:git:https://github.com/CERN/polymer-elements-all.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
     
     <build>
@@ -61,7 +61,7 @@
                                 <echo message="moving resources" />
                                 <mkdir dir="${destDir}" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.basedir}/bower_components" />
+                                    <fileset dir="${project.build.directory}/bower_components" />
                                 </move>
                             </target>
                         </configuration>
@@ -152,7 +152,7 @@
               <target>
                  <echo>Copying bower module to target checkout dir to deal with frontend-maven-plugin issue 539</echo>
                  <copy todir="${project.basedir}/target/checkout/target/node_modules/">
-				   <fileset dir="${project.basedir}/node_modules/bower" />
+				   <fileset dir="${project.basedir}/node_modules/bower"/>
 				 </copy>
               </target>
             </configuration>
