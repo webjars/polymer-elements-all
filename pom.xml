@@ -134,7 +134,7 @@
     
     <profiles>
     <profile>
-      <id>development-themes</id>
+      <id>fix-frontend-plugin-release-issue</id>
       <activation>
         <property>
           <name>performRelease</name>
