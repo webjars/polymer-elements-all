@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>polymer-elements-all</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>polymer-elements-all</name>
     <description>WebJar for Polymer Elements compendium</description>
     <url>http://webjars.org</url>
@@ -42,7 +42,7 @@
         <url>http://github.com/webjars/polymer-elements-all</url>
         <connection>scm:git:https://github.com/CERN/webjars-polymer-elements-all.git</connection>
         <developerConnection>scm:git:https://github.com/CERN/webjars-polymer-elements-all.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>polymer-elements-all-0.0.2</tag>
     </scm>
     
     <build>
@@ -151,7 +151,7 @@
             <configuration>
               <target>
                  <echo>Copying bower module to target checkout dir to deal with frontend-maven-plugin issue 539</echo>
-                 <mkdir dir="${project.basedir}/target/checkout/target/node_modules/bower"/>
+                 <mkdir dir="${project.basedir}/target/checkout/target/node_modules/bower" />
                  <copy todir="${project.basedir}/target/checkout/target/node_modules/bower">
 				   <fileset dir="${project.basedir}/node_modules/bower" />
 				 </copy>
