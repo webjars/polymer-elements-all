@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>polymer-elements-all</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <name>polymer-elements-all</name>
     <description>WebJar for Polymer Elements compendium</description>
     <url>http://webjars.org</url>
@@ -151,8 +151,8 @@
             <configuration>
               <target>
                  <echo>Copying bower module to target checkout dir to deal with frontend-maven-plugin issue 539</echo>
-                 <mkdir dir="${project.basedir}/target/node_modules/bower" />
-                 <copy todir="${project.basedir}/target/node_modules/bower">
+                 <mkdir dir="${project.basedir}/node_modules/bower" />
+                 <copy todir="${project.basedir}/node_modules/bower">
 				   <fileset dir="../../node_modules/bower" />
 				 </copy>
               </target>
