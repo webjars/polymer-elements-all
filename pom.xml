@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
+    <!--parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
         <version>7</version>
-    </parent>
+    </parent-->
     
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
@@ -40,8 +40,8 @@
 
     <scm>
         <url>http://github.com/webjars/polymer-elements-all</url>
-        <connection>scm:git:https://github.com/webjars/polymer-elements-all.git</connection>
-        <developerConnection>scm:git:https://github.com/webjars/polymer-elements-all.git</developerConnection>
+        <connection>scm:git:https://github.com/CERN/polymer-elements-all.git</connection>
+        <developerConnection>scm:git:https://github.com/CERN/polymer-elements-all.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
     
@@ -61,7 +61,7 @@
                                 <echo message="moving resources" />
                                 <mkdir dir="${destDir}" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.basedir}/bower_components" />
+                                    <fileset dir="${project.build.directory}/bower_components" />
                                 </move>
                             </target>
                         </configuration>
@@ -131,5 +131,40 @@
             </plugin>
         </plugins>
     </build>
+    
+    <profiles>
+    <profile>
+      <id>development-themes</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+                 <echo>Copying bower module to target checkout dir to deal with frontend-maven-plugin issue 539</echo>
+                 <copy todir="${project.basedir}/target/checkout/target/node_modules/">
+				   <fileset dir="${project.basedir}/node_modules/bower"/>
+				 </copy>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
