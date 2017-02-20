@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>polymer-elements-all</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9-SNAPSHOT</version>
     <name>polymer-elements-all</name>
     <description>WebJar for Polymer Elements compendium</description>
     <url>http://webjars.org</url>
@@ -42,7 +42,7 @@
         <url>http://github.com/webjars/polymer-elements-all</url>
         <connection>scm:git:https://github.com/webjars/polymer-elements-all.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/polymer-elements-all.git</developerConnection>
-        <tag>polymer-elements-all-0.0.8</tag>
+        <tag>HEAD</tag>
     </scm>
     
     <build>
