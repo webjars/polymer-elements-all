@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>polymer-elements-all</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.8-SNAPSHOT</version>
     <name>polymer-elements-all</name>
     <description>WebJar for Polymer Elements compendium</description>
     <url>http://webjars.org</url>
@@ -59,8 +59,8 @@
                         <configuration>
                             <target>
                                 <echo message="moving resources" />
-                                <mkdir dir="${destDir}" />
-                                <move todir="${destDir}">
+                                <mkdir dir="${destDir}/bower_components" />
+                                <move todir="${destDir}/bower_components">
                                     <fileset dir="${project.basedir}/bower_components" />
                                 </move>
                             </target>
@@ -131,5 +131,41 @@
             </plugin>
         </plugins>
     </build>
+    
+    <profiles>
+    <profile>
+      <id>fix-frontend-plugin-release-issue</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <configuration>
+              <target>
+                 <echo>Copying bower module to target checkout dir to deal with frontend-maven-plugin issue 539</echo>
+                 <mkdir dir="${project.basedir}/node_modules/bower" />
+                 <copy todir="${project.basedir}/node_modules/bower">
+				   <fileset dir="../../node_modules/bower" />
+				 </copy>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
