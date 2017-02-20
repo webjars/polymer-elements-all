@@ -59,8 +59,8 @@
                         <configuration>
                             <target>
                                 <echo message="moving resources" />
-                                <mkdir dir="${destDir}/bower_components" />
-                                <move todir="${destDir}/bower_components">
+                                <mkdir dir="${destDir}" />
+                                <move todir="${destDir}">
                                     <fileset dir="${project.basedir}/bower_components" />
                                 </move>
                             </target>
