@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>polymer-elements-all</artifactId>
-    <version>0.0.8-SNAPSHOT</version>
+    <version>0.0.9-SNAPSHOT</version>
     <name>polymer-elements-all</name>
     <description>WebJar for Polymer Elements compendium</description>
     <url>http://webjars.org</url>
@@ -59,8 +59,8 @@
                         <configuration>
                             <target>
                                 <echo message="moving resources" />
-                                <mkdir dir="${destDir}/bower_components" />
-                                <move todir="${destDir}/bower_components">
+                                <mkdir dir="${destDir}" />
+                                <move todir="${destDir}">
                                     <fileset dir="${project.basedir}/bower_components" />
                                 </move>
                             </target>
